@@ -7,16 +7,21 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainUserRestViewController: UIViewController {
+    
     
     @IBOutlet weak var textlabel: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        textlabel.text = "Hi "
+        
+        textlabel.text = "Hi"
+        
+        
     }
 
+    
+    
 
 }
 
