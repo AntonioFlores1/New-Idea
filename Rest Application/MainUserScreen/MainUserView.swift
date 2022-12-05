@@ -11,9 +11,56 @@ class MainUserView: UIView {
    
     public lazy var mainUserSearchBar: UISearchBar = {
         let mainUserSearchBar = UISearchBar()
-        mainUserSearchBar.backgroundColor = .blue
+        mainUserSearchBar.barTintColor = .white
+//        mainUserSearchBar.
            return mainUserSearchBar
        }()
+    
+    private lazy var filterRestButton: UIButton = {
+        let filterRestButton = UIButton()
+        let boldConfig = UIImage.SymbolConfiguration(weight: .bold)
+        let boldSearch = UIImage(systemName: "search", withConfiguration: boldConfig)
+        filterRestButton.setTitle("Filter", for: .normal)
+        filterRestButton.setTitleColor(UIColor.black, for: .normal)
+        return filterRestButton
+    }()
+    
+    private lazy var eatofWeekLabel: UILabel = {
+        let eatofWeekLabel = UILabel()
+        eatofWeekLabel.text = "Eat of the Week"
+        return eatofWeekLabel
+    }()
+    
+    private lazy var eatofweekSeeMoreLabel: UILabel = {
+        let eatOfWeekSeeMoreLabel = UILabel()
+        eatOfWeekSeeMoreLabel.text = "See More"
+        return eatOfWeekSeeMoreLabel
+    }()
+    
+     lazy var eatoftheWeekCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let eatoftheWeekCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+//        let viewLayout = UICollectionViewFlowLayout()
+//        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
+//        collectionView.backgroundColor = .white
+        eatoftheWeekCollectionView.backgroundColor = .blue
+        layout.scrollDirection = .horizontal
+        return eatoftheWeekCollectionView
+    }()
+    
+
+    
+    private lazy var nearYouLabel: UILabel = {
+        let nearYouLabel = UILabel()
+        nearYouLabel.text = "Near You"
+        return nearYouLabel
+    }()
+    
+    private lazy var nearYouSeeMoreLabel: UILabel = {
+        let nearYouSeeMoreLabel = UILabel()
+        nearYouSeeMoreLabel.text = "See More"
+        return nearYouSeeMoreLabel
+    }()
     
     
         
@@ -28,20 +75,59 @@ class MainUserView: UIView {
         }
     
     private func commonInit(){
-        mainUserUIConstraints()
+        mainUserScreenUIConstraints()
         }
     
-    private func mainUserUIConstraints(){
+    private func mainUserScreenUIConstraints(){
+        addingSubViews()
         mainUserSearchBarConstraints()
+        filterRestButtonConstraints()
+        eatofWeekLabelConstraints()
+        eatofweekSeeMoreLabelConstraints()
+        eatoftheWeekCollectionViewConstraints()
        }
     
+    private func addingSubViews(){
+        addSubview(mainUserSearchBar)
+        addSubview(filterRestButton)
+        addSubview(eatofWeekLabel)
+        addSubview(eatofweekSeeMoreLabel)
+        addSubview(eatoftheWeekCollectionView)
+    }
     
     private func mainUserSearchBarConstraints(){
-            addSubview(mainUserSearchBar)
         mainUserSearchBar.translatesAutoresizingMaskIntoConstraints = false
         mainUserSearchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
         mainUserSearchBar.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
-        mainUserSearchBar.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
+        mainUserSearchBar.trailingAnchor.constraint(equalTo: filterRestButton.leadingAnchor, constant: -10).isActive = true
+        }
+    
+    private func filterRestButtonConstraints(){
+        filterRestButton.translatesAutoresizingMaskIntoConstraints = false
+        filterRestButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+        filterRestButton.leadingAnchor.constraint(equalTo: mainUserSearchBar.trailingAnchor, constant: 10).isActive = true
+        filterRestButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
+        filterRestButton.bottomAnchor.constraint(equalTo: mainUserSearchBar.bottomAnchor, constant: 0).isActive = true
+        }
+    
+    private func eatofWeekLabelConstraints(){
+        eatofWeekLabel.translatesAutoresizingMaskIntoConstraints = false
+        eatofWeekLabel.topAnchor.constraint(equalTo: mainUserSearchBar.bottomAnchor, constant: 10).isActive = true
+        eatofWeekLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
+        }
+    
+    private func eatofweekSeeMoreLabelConstraints(){
+        eatofweekSeeMoreLabel.translatesAutoresizingMaskIntoConstraints = false
+        eatofweekSeeMoreLabel.topAnchor.constraint(equalTo: filterRestButton.bottomAnchor, constant: 10).isActive = true
+        eatofweekSeeMoreLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
+        }
+    
+    private func eatoftheWeekCollectionViewConstraints(){
+        eatoftheWeekCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        eatoftheWeekCollectionView.topAnchor.constraint(equalTo: eatofWeekLabel.bottomAnchor, constant: 10).isActive = true
+        eatoftheWeekCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
+        eatoftheWeekCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
+        eatoftheWeekCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
         }
     
     

@@ -7,28 +7,45 @@
 
 import UIKit
 
-class MainUserRestViewController: UIViewController {
+class MainUserRestViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var mainUserView = MainUserView()
+ 
+    
+    
+    let mainUserView = MainUserView()
     
     @IBOutlet weak var textlabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.navigationController?.navigationBar.prefersLargeTitles = true
-//        self.navigationController?.navigationBar.preferredBehavioralStyle =
-//        self.navigationItem.setTitle(<#T##title: String##String#>, subtitle: T##String)
-        self.navigationItem.largeTitleDisplayMode = .never
-        self.navigationItem.largeTitleDisplayMode = .always
-        
         view.addSubview(mainUserView)
-//        self.navigationItem.titleView?.backgroundColor = .red
-//        self.navigationItem.setTitle("Hello Antonio Good morning", subtitle: "Back up Test")
-        self.navigationItem.title = "Hello Antonio Good morning"
 
-//        self.navigationItem.prompt = "Back up Test"
+        self.navigationItem.setTitle("Hello Antonio Good morning", subtitle: "Find Your Place")
+//        self.navigationItem.largeTitleDisplayMode = .never
+//        self.navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.prefersLargeTitles = false
+        mainUserView.eatoftheWeekCollectionView.delegate = self
+        mainUserView.eatoftheWeekCollectionView.dataSource = self
+        mainUserView.eatoftheWeekCollectionView.register(MainUserCollectionViewCell.self, forCellWithReuseIdentifier: "mainCollectionCellIdentifier")
+        mainUserView.eatoftheWeekCollectionView.alwaysBounceHorizontal = true
+
+
         textlabel.text = "Hi"
         
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 100
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = mainUserView.eatoftheWeekCollectionView.dequeueReusableCell(withReuseIdentifier: "mainCollectionCellIdentifier", for: indexPath as IndexPath)
+        
+        cell.backgroundColor = UIColor.green
+
+        return cell
     }
     
     
