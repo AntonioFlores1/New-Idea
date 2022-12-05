@@ -44,10 +44,12 @@ class MainUserView: UIView {
 //        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
 //        collectionView.backgroundColor = .white
         eatoftheWeekCollectionView.backgroundColor = .blue
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width/2 - 10, height: 190)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        layout.minimumInteritemSpacing = 0.0
         layout.scrollDirection = .horizontal
         return eatoftheWeekCollectionView
     }()
-    
 
     
     private lazy var nearYouLabel: UILabel = {
@@ -62,6 +64,19 @@ class MainUserView: UIView {
         return nearYouSeeMoreLabel
     }()
     
+    lazy var nearYouCollectionView: UICollectionView = {
+       let layout = UICollectionViewFlowLayout()
+       let nearYouCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+//        let viewLayout = UICollectionViewFlowLayout()
+//        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
+//        collectionView.backgroundColor = .white
+        nearYouCollectionView.backgroundColor = .blue
+       layout.itemSize = CGSize(width: UIScreen.main.bounds.width/2 - 10, height: 190)
+       layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+       layout.minimumInteritemSpacing = 0.0
+       layout.scrollDirection = .horizontal
+       return nearYouCollectionView
+   }()
     
         
     override init(frame: CGRect) {
@@ -130,5 +145,24 @@ class MainUserView: UIView {
         eatoftheWeekCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
         }
     
+    private func nearYouLabelConstraints(){
+        nearYouLabel.translatesAutoresizingMaskIntoConstraints = false
+        nearYouLabel.topAnchor.constraint(equalTo: mainUserSearchBar.bottomAnchor, constant: 10).isActive = true
+        nearYouLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
+        }
+    
+    private func nearYouSeeMoreLabelLabelConstraints(){
+        nearYouSeeMoreLabel.translatesAutoresizingMaskIntoConstraints = false
+        nearYouSeeMoreLabel.topAnchor.constraint(equalTo: filterRestButton.bottomAnchor, constant: 10).isActive = true
+        nearYouSeeMoreLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
+        }
+//
+//    private func eatoftheWeekCollectionViewConstraints(){
+//        eatoftheWeekCollectionView.translatesAutoresizingMaskIntoConstraints = false
+//        eatoftheWeekCollectionView.topAnchor.constraint(equalTo: eatofWeekLabel.bottomAnchor, constant: 10).isActive = true
+//        eatoftheWeekCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
+//        eatoftheWeekCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
+//        eatoftheWeekCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
+//        }
     
 }
