@@ -25,9 +25,18 @@ class MainUserRestViewController: UIViewController, UICollectionViewDelegate, UI
         self.navigationItem.largeTitleDisplayMode = .always
            self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 10)]
+        
         mainUserView.eatoftheWeekCollectionView.delegate = self
         mainUserView.eatoftheWeekCollectionView.dataSource = self
-        mainUserView.eatoftheWeekCollectionView.register(MainUserCollectionViewCell.self, forCellWithReuseIdentifier: "mainCollectionCellIdentifier")
+        
+        mainUserView.nearYouCollectionView.delegate = self
+        mainUserView.nearYouCollectionView.dataSource = self
+        
+        mainUserView.eatoftheWeekCollectionView.register(MainUserCollectionViewCell.self, forCellWithReuseIdentifier: "mainUserCollectionCellIdentifier")
+        mainUserView.nearYouCollectionView.register(MainUserCollectionViewCell.self, forCellWithReuseIdentifier: "nearUserCollectionCellIdentifier")
+        
+        
+        mainUserView.nearYouCollectionView.alwaysBounceHorizontal = true
         mainUserView.eatoftheWeekCollectionView.alwaysBounceHorizontal = true
 
 
@@ -52,12 +61,17 @@ class MainUserRestViewController: UIViewController, UICollectionViewDelegate, UI
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = mainUserView.eatoftheWeekCollectionView.dequeueReusableCell(withReuseIdentifier: "mainCollectionCellIdentifier", for: indexPath as IndexPath)
+        let mainUsercell = mainUserView.eatoftheWeekCollectionView.dequeueReusableCell(withReuseIdentifier: "mainUserCollectionCellIdentifier", for: indexPath as IndexPath)
         
-        cell.backgroundColor = UIColor.green
+        let nearUsercell = mainUserView.nearYouCollectionView.dequeueReusableCell(withReuseIdentifier: "nearUserCollectionCellIdentifier", for: indexPath as IndexPath)
+        
+        mainUsercell.backgroundColor = UIColor.green
+        mainUsercell.backgroundColor = UIColor.green
 
-        return cell
+
+        return nearUsercell
     }
+    
     
     
 

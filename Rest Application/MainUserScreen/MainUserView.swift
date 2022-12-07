@@ -8,12 +8,13 @@
 import UIKit
 
 class MainUserView: UIView {
+   
     
     lazy var contentViewSize = CGSize(width: self.frame.width, height: self.frame.height + 100)
     
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView(frame: .zero)
-        scrollView.backgroundColor = .red
+        scrollView.backgroundColor = .white
         scrollView.frame = self.bounds
         scrollView.contentSize = contentViewSize
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -26,7 +27,7 @@ class MainUserView: UIView {
         containerView.frame.size = contentViewSize
         return containerView
     }()
-
+    
     
     public lazy var mainUserSearchBar: UISearchBar = {
         let mainUserSearchBar = UISearchBar()
@@ -47,26 +48,31 @@ class MainUserView: UIView {
     private lazy var eatofWeekLabel: UILabel = {
         let eatofWeekLabel = UILabel()
         eatofWeekLabel.text = "Eat of the Week"
+        eatofWeekLabel.backgroundColor = .systemPink
         return eatofWeekLabel
     }()
     
     private lazy var eatofweekSeeMoreLabel: UILabel = {
         let eatOfWeekSeeMoreLabel = UILabel()
         eatOfWeekSeeMoreLabel.text = "See More"
+        eatOfWeekSeeMoreLabel.backgroundColor = .systemPink
+
         return eatOfWeekSeeMoreLabel
     }()
     
      lazy var eatoftheWeekCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let eatoftheWeekCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-//        let viewLayout = UICollectionViewFlowLayout()
-//        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
+        let viewLayout = UICollectionViewFlowLayout()
+         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
 //        collectionView.backgroundColor = .white
-        eatoftheWeekCollectionView.backgroundColor = .blue
+        eatoftheWeekCollectionView.backgroundColor = .red
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width/2 - 10, height: 190)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        layout.minimumInteritemSpacing = 0.0
         layout.scrollDirection = .horizontal
         return eatoftheWeekCollectionView
     }()
-    
 
     
     private lazy var nearYouLabel: UILabel = {
@@ -81,6 +87,16 @@ class MainUserView: UIView {
         return nearYouSeeMoreLabel
     }()
     
+    lazy var nearYouCollectionView: UICollectionView = {
+       let layout = UICollectionViewFlowLayout()
+       let nearYouCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        nearYouCollectionView.backgroundColor = .red
+       layout.itemSize = CGSize(width: UIScreen.main.bounds.width/2 - 10, height: 40)
+       layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
+       layout.minimumInteritemSpacing = 0.0
+       layout.scrollDirection = .horizontal
+       return nearYouCollectionView
+   }()
     
         
     override init(frame: CGRect) {
@@ -104,6 +120,9 @@ class MainUserView: UIView {
         eatofWeekLabelConstraints()
         eatofweekSeeMoreLabelConstraints()
         eatoftheWeekCollectionViewConstraints()
+        nearYouLabelConstraints()
+        nearYouSeeMoreLabelConstraints()
+        nearYouCollectionViewConstraints()
        }
     
     private func addingSubViews(){
@@ -113,6 +132,9 @@ class MainUserView: UIView {
         containerView.addSubview(eatofWeekLabel)
         containerView.addSubview(eatofweekSeeMoreLabel)
         containerView.addSubview(eatoftheWeekCollectionView)
+        containerView.addSubview(nearYouLabel)
+        containerView.addSubview(nearYouSeeMoreLabel)
+        containerView.addSubview(nearYouCollectionView)
     }
     
     private func mainUserSearchBarConstraints(){
@@ -147,8 +169,31 @@ class MainUserView: UIView {
         eatoftheWeekCollectionView.topAnchor.constraint(equalTo: eatofWeekLabel.bottomAnchor, constant: 10).isActive = true
         eatoftheWeekCollectionView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
         eatoftheWeekCollectionView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
-        eatoftheWeekCollectionView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10).isActive = true
+        eatoftheWeekCollectionView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.3).isActive = true
+
         }
     
+    private func nearYouLabelConstraints(){
+        nearYouLabel.translatesAutoresizingMaskIntoConstraints = false
+        nearYouLabel.topAnchor.constraint(equalTo: eatoftheWeekCollectionView.bottomAnchor, constant: 10).isActive = true
+        nearYouLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
+//        nearYouLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10).isActive = true
+
+        }
+    
+    private func nearYouSeeMoreLabelConstraints(){
+        nearYouSeeMoreLabel.translatesAutoresizingMaskIntoConstraints = false
+        nearYouSeeMoreLabel.topAnchor.constraint(equalTo: eatoftheWeekCollectionView.bottomAnchor, constant: 10).isActive = true
+        nearYouSeeMoreLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
+//        nearYouSeeMoreLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10).isActive = true
+        }
+
+    private func nearYouCollectionViewConstraints(){
+        nearYouCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        nearYouCollectionView.topAnchor.constraint(equalTo: nearYouLabel.bottomAnchor, constant: 10).isActive = true
+        nearYouCollectionView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
+        nearYouCollectionView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
+        nearYouCollectionView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10).isActive = true
+        }
     
 }
