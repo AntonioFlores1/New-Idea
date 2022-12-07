@@ -9,21 +9,22 @@ import UIKit
 
 class MainUserRestViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
- 
-    
-    
     let mainUserView = MainUserView()
     
     @IBOutlet weak var textlabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(mainUserView)
+        view.backgroundColor = .yellow
 
         self.navigationItem.setTitle("Hello Antonio Good morning", subtitle: "Find Your Place")
+        navigationItem.title = "Hello Antonio Good morning \n Find Your Place"
+        navigationItem.titleView?.backgroundColor = .cyan
+        navigationController?.navigationBar.backgroundColor = .orange
 //        self.navigationItem.largeTitleDisplayMode = .never
-//        self.navigationItem.largeTitleDisplayMode = .always
-        navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationItem.largeTitleDisplayMode = .always
+           self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 10)]
         mainUserView.eatoftheWeekCollectionView.delegate = self
         mainUserView.eatoftheWeekCollectionView.dataSource = self
         mainUserView.eatoftheWeekCollectionView.register(MainUserCollectionViewCell.self, forCellWithReuseIdentifier: "mainCollectionCellIdentifier")
@@ -32,11 +33,21 @@ class MainUserRestViewController: UIViewController, UICollectionViewDelegate, UI
 
         textlabel.text = "Hi"
         
+        
+//        mainUserView.scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
+        view.addSubview(mainUserView.scrollView)
+
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        mainUserView.scrollView.topAnchor.constraint(equalTo: navigationController?.navigationBar.bottomAnchor ?? view.topAnchor).isActive = true
+        mainUserView.scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        mainUserView.scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        mainUserView.scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    }
+
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -66,9 +77,12 @@ extension UINavigationItem {
         subtitleLabel.textColor = .darkGray
 
         let stackView = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.alignment = .leading
+        stackView.backgroundColor = .green
         stackView.axis = .vertical
         self.titleView = stackView
+        
     }
 
 }

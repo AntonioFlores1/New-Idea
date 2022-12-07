@@ -8,7 +8,26 @@
 import UIKit
 
 class MainUserView: UIView {
-   
+    
+    lazy var contentViewSize = CGSize(width: self.frame.width, height: self.frame.height + 100)
+    
+    lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView(frame: .zero)
+        scrollView.backgroundColor = .red
+        scrollView.frame = self.bounds
+        scrollView.contentSize = contentViewSize
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    
+    lazy var containerView: UIView = {
+        let containerView = UIView()
+        containerView.backgroundColor = .blue
+        containerView.frame.size = contentViewSize
+        return containerView
+    }()
+
+    
     public lazy var mainUserSearchBar: UISearchBar = {
         let mainUserSearchBar = UISearchBar()
         mainUserSearchBar.barTintColor = .white
@@ -88,46 +107,47 @@ class MainUserView: UIView {
        }
     
     private func addingSubViews(){
-        addSubview(mainUserSearchBar)
-        addSubview(filterRestButton)
-        addSubview(eatofWeekLabel)
-        addSubview(eatofweekSeeMoreLabel)
-        addSubview(eatoftheWeekCollectionView)
+        scrollView.addSubview(containerView)
+        containerView.addSubview(mainUserSearchBar)
+        containerView.addSubview(filterRestButton)
+        containerView.addSubview(eatofWeekLabel)
+        containerView.addSubview(eatofweekSeeMoreLabel)
+        containerView.addSubview(eatoftheWeekCollectionView)
     }
     
     private func mainUserSearchBarConstraints(){
         mainUserSearchBar.translatesAutoresizingMaskIntoConstraints = false
-        mainUserSearchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
-        mainUserSearchBar.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
+        mainUserSearchBar.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10).isActive = true
+        mainUserSearchBar.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
         mainUserSearchBar.trailingAnchor.constraint(equalTo: filterRestButton.leadingAnchor, constant: -10).isActive = true
         }
     
     private func filterRestButtonConstraints(){
         filterRestButton.translatesAutoresizingMaskIntoConstraints = false
-        filterRestButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+        filterRestButton.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10).isActive = true
         filterRestButton.leadingAnchor.constraint(equalTo: mainUserSearchBar.trailingAnchor, constant: 10).isActive = true
-        filterRestButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
+        filterRestButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
         filterRestButton.bottomAnchor.constraint(equalTo: mainUserSearchBar.bottomAnchor, constant: 0).isActive = true
         }
     
     private func eatofWeekLabelConstraints(){
         eatofWeekLabel.translatesAutoresizingMaskIntoConstraints = false
         eatofWeekLabel.topAnchor.constraint(equalTo: mainUserSearchBar.bottomAnchor, constant: 10).isActive = true
-        eatofWeekLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
+        eatofWeekLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
         }
     
     private func eatofweekSeeMoreLabelConstraints(){
         eatofweekSeeMoreLabel.translatesAutoresizingMaskIntoConstraints = false
         eatofweekSeeMoreLabel.topAnchor.constraint(equalTo: filterRestButton.bottomAnchor, constant: 10).isActive = true
-        eatofweekSeeMoreLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
+        eatofweekSeeMoreLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
         }
     
     private func eatoftheWeekCollectionViewConstraints(){
         eatoftheWeekCollectionView.translatesAutoresizingMaskIntoConstraints = false
         eatoftheWeekCollectionView.topAnchor.constraint(equalTo: eatofWeekLabel.bottomAnchor, constant: 10).isActive = true
-        eatoftheWeekCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
-        eatoftheWeekCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
-        eatoftheWeekCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
+        eatoftheWeekCollectionView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
+        eatoftheWeekCollectionView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
+        eatoftheWeekCollectionView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10).isActive = true
         }
     
     
