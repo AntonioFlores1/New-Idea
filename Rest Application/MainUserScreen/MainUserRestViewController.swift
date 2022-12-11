@@ -18,13 +18,13 @@ class MainUserRestViewController: UIViewController, UICollectionViewDelegate, UI
         view.backgroundColor = .yellow
 
         self.navigationItem.setTitle("Hello Antonio Good morning", subtitle: "Find Your Place")
-        navigationItem.title = "Hello Antonio Good morning \n Find Your Place"
+//        navigationItem.title = "Hello Antonio Good morning, Find Your Place to eat"
         navigationItem.titleView?.backgroundColor = .cyan
         navigationController?.navigationBar.backgroundColor = .orange
 //        self.navigationItem.largeTitleDisplayMode = .never
-        self.navigationItem.largeTitleDisplayMode = .always
-           self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 10)]
+//        self.navigationItem.largeTitleDisplayMode = .always
+//           self.navigationController?.navigationBar.prefersLargeTitles = true
+//        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 13)]
         
         mainUserView.eatoftheWeekCollectionView.delegate = self
         mainUserView.eatoftheWeekCollectionView.dataSource = self
@@ -56,20 +56,30 @@ class MainUserRestViewController: UIViewController, UICollectionViewDelegate, UI
 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        
+        if collectionView == mainUserView.eatoftheWeekCollectionView {
+            
+            return 10
+
+        } else {
+
+            return 10
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let mainUsercell = mainUserView.eatoftheWeekCollectionView.dequeueReusableCell(withReuseIdentifier: "mainUserCollectionCellIdentifier", for: indexPath as IndexPath)
-        
-        let nearUsercell = mainUserView.nearYouCollectionView.dequeueReusableCell(withReuseIdentifier: "nearUserCollectionCellIdentifier", for: indexPath as IndexPath)
-        
-        mainUsercell.backgroundColor = UIColor.green
-        mainUsercell.backgroundColor = UIColor.green
+        if collectionView == mainUserView.eatoftheWeekCollectionView {
+            let mainUsercell = mainUserView.eatoftheWeekCollectionView.dequeueReusableCell(withReuseIdentifier: "mainUserCollectionCellIdentifier", for: indexPath as IndexPath)
+            mainUsercell.backgroundColor = UIColor.green
 
+            return mainUsercell
+        } else {
+            let nearUsercell = mainUserView.nearYouCollectionView.dequeueReusableCell(withReuseIdentifier: "nearUserCollectionCellIdentifier", for: indexPath as IndexPath)
+            nearUsercell.backgroundColor = UIColor.green
 
-        return nearUsercell
+            return nearUsercell
+        }
+    
     }
     
     
