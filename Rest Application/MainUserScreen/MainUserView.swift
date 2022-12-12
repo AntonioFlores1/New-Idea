@@ -48,14 +48,14 @@ class MainUserView: UIView {
     private lazy var eatofWeekLabel: UILabel = {
         let eatofWeekLabel = UILabel()
         eatofWeekLabel.text = "Eat of the Week"
-        eatofWeekLabel.backgroundColor = .systemPink
         return eatofWeekLabel
     }()
     
      lazy var eatoftheweekSeeMoreButton: UIButton = {
         let eatoftheweekSeeMoreButton = UIButton()
         eatoftheweekSeeMoreButton.setTitle("See More", for: .normal)
-        eatoftheweekSeeMoreButton.setTitleColor(UIColor.black, for: .normal)
+//        eatoftheweekSeeMoreButton.setTitleColor(UIColor.black, for: .normal)
+         eatoftheweekSeeMoreButton.setTitleColor(UIColor.black, for: .normal)
         return eatoftheweekSeeMoreButton
     }()
     
@@ -164,7 +164,11 @@ class MainUserView: UIView {
         eatoftheweekSeeMoreButton.translatesAutoresizingMaskIntoConstraints = false
         eatoftheweekSeeMoreButton.topAnchor.constraint(equalTo: filterRestButton.bottomAnchor, constant: 24).isActive = true
         eatoftheweekSeeMoreButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
-        }
+        eatoftheweekSeeMoreButton.bottomAnchor.constraint(equalTo: eatofWeekLabel.bottomAnchor, constant: 0).isActive = true
+
+//        eatoftheweekSeeMoreButton.heightAnchor.constraint(equalToConstant: eatofWeekLabel.frame.height).isActive = true
+//        eatoftheweekSeeMoreButton.heightAnchor.
+    }
     
     private func eatoftheWeekCollectionViewConstraints(){
         eatoftheWeekCollectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -187,7 +191,8 @@ class MainUserView: UIView {
         nearYouSeeMoreButton.translatesAutoresizingMaskIntoConstraints = false
         nearYouSeeMoreButton.topAnchor.constraint(equalTo: eatoftheWeekCollectionView.bottomAnchor, constant: 24).isActive = true
         nearYouSeeMoreButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
-//        nearYouSeeMoreLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10).isActive = true
+        nearYouSeeMoreButton.bottomAnchor.constraint(equalTo: nearYouLabel.bottomAnchor, constant: 0).isActive = true
+
         }
 
     private func nearYouCollectionViewConstraints(){
