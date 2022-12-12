@@ -1,18 +1,17 @@
 //
-//  restMainInfoViewController.swift
+//  SeeMoreViewController.swift
 //  Rest Application
 //
-//  Created by Antonio on 11/19/22.
+//  Created by Antonio on 12/11/22.
 //
 
 import UIKit
 
-class RestMainInfoViewController: UIViewController {
+class SeeMoreViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .orange
+        view.backgroundColor = .cyan
         // Do any additional setup after loading the view.
     }
     
