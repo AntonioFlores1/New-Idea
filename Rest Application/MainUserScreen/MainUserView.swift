@@ -52,7 +52,7 @@ class MainUserView: UIView {
         return eatofWeekLabel
     }()
     
-    private lazy var eatoftheweekSeeMoreButton: UIButton = {
+     lazy var eatoftheweekSeeMoreButton: UIButton = {
         let eatoftheweekSeeMoreButton = UIButton()
         eatoftheweekSeeMoreButton.setTitle("See More", for: .normal)
         eatoftheweekSeeMoreButton.setTitleColor(UIColor.black, for: .normal)
@@ -81,7 +81,7 @@ class MainUserView: UIView {
         return nearYouLabel
     }()
     
-    private lazy var nearYouSeeMoreButton: UIButton = {
+     lazy var nearYouSeeMoreButton: UIButton = {
         let nearYouSeeMoreButton = UIButton()
         nearYouSeeMoreButton.setTitle("See More", for: .normal)
         nearYouSeeMoreButton.setTitleColor(UIColor.black, for: .normal)
