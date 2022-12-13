@@ -10,9 +10,7 @@ import UIKit
 class MainUserRestViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     let mainUserView = MainUserView()
-    
-    @IBOutlet weak var textlabel: UILabel!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .yellow
@@ -38,15 +36,15 @@ class MainUserRestViewController: UIViewController, UICollectionViewDelegate, UI
         
         mainUserView.nearYouCollectionView.alwaysBounceHorizontal = true
         mainUserView.eatoftheWeekCollectionView.alwaysBounceHorizontal = true
-
-
-        textlabel.text = "Hi"
         
+        mainUserView.nearYouSeeMoreButton.addTarget(self, action: #selector(nearYouSeeMoreButtonAction), for: .touchUpInside)
         
-//        mainUserView.scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
+        mainUserView.eatoftheweekSeeMoreButton.addTarget(self, action: #selector(eatoftheweekSeeMoreButtonAction), for: .touchUpInside)
+
         view.addSubview(mainUserView.scrollView)
 
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         mainUserView.scrollView.topAnchor.constraint(equalTo: navigationController?.navigationBar.bottomAnchor ?? view.topAnchor).isActive = true
         mainUserView.scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -54,6 +52,17 @@ class MainUserRestViewController: UIViewController, UICollectionViewDelegate, UI
         mainUserView.scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
 
+    @objc func eatoftheweekSeeMoreButtonAction(sender: UIButton!) {
+        let seeMoreViewController = SeeMoreViewController()
+        self.navigationController?.pushViewController(seeMoreViewController, animated: true)
+      print("eat of the week Button tapped")
+    }
+    
+    @objc func nearYouSeeMoreButtonAction(sender: UIButton!) {
+        let seeMoreViewController = SeeMoreViewController()
+        self.navigationController?.pushViewController(seeMoreViewController, animated: true)
+      print("Near you Button tapped")
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -65,6 +74,11 @@ class MainUserRestViewController: UIViewController, UICollectionViewDelegate, UI
 
             return 10
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let restMainInfoViewController = RestMainInfoViewController()
+        self.navigationController?.pushViewController(restMainInfoViewController, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
