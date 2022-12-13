@@ -7,23 +7,31 @@
 
 import UIKit
 
-class SeeMoreViewController: UIViewController {
+class SeeMoreViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    var seeMoreView = SeeMoreView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .cyan
-        // Do any additional setup after loading the view.
+        view.addSubview(seeMoreView)
+        view.backgroundColor = .white
+        
+        seeMoreView.seeMoreCollectionView.dataSource = self
+        seeMoreView.seeMoreCollectionView.delegate = self
+        
+        seeMoreView.seeMoreCollectionView.register(SeeMoreCollectionViewCell.self, forCellWithReuseIdentifier: "seeMoreCellIdentifier")
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
     }
-    */
-
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let seeMorecell = seeMoreView.seeMoreCollectionView.dequeueReusableCell(withReuseIdentifier: "seeMoreCellIdentifier", for: indexPath as IndexPath)
+        seeMorecell.backgroundColor = UIColor.green
+        
+        return seeMorecell
+    }
+    
 }

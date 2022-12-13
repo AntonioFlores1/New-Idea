@@ -19,6 +19,7 @@
 		A9EDBA22293D7D5E00589963 /* MainUserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EDBA21293D7D5E00589963 /* MainUserCollectionViewCell.swift */; };
 		A9EDBA252946B95A00589963 /* SeeMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EDBA242946B95A00589963 /* SeeMoreViewController.swift */; };
 		A9EDBA292946B99500589963 /* SeeMoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EDBA282946B99500589963 /* SeeMoreView.swift */; };
+		A9EDBA2C294803AD00589963 /* SeeMoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EDBA2B294803AD00589963 /* SeeMoreCollectionViewCell.swift */; };
 		A9F7F7B5292972F400661EE2 /* RestMainLayoutViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F7F7B4292972F400661EE2 /* RestMainLayoutViewContoller.swift */; };
 		A9F7F7B72929731200661EE2 /* MainUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F7F7B62929731200661EE2 /* MainUserView.swift */; };
 		A9F7F7B92929734000661EE2 /* RestMainInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F7F7B82929734000661EE2 /* RestMainInfoViewController.swift */; };
@@ -62,6 +63,7 @@
 		A9EDBA21293D7D5E00589963 /* MainUserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUserCollectionViewCell.swift; sourceTree = "<group>"; };
 		A9EDBA242946B95A00589963 /* SeeMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeMoreViewController.swift; sourceTree = "<group>"; };
 		A9EDBA282946B99500589963 /* SeeMoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeMoreView.swift; sourceTree = "<group>"; };
+		A9EDBA2B294803AD00589963 /* SeeMoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeMoreCollectionViewCell.swift; sourceTree = "<group>"; };
 		A9F7F7B4292972F400661EE2 /* RestMainLayoutViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestMainLayoutViewContoller.swift; sourceTree = "<group>"; };
 		A9F7F7B62929731200661EE2 /* MainUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUserView.swift; sourceTree = "<group>"; };
 		A9F7F7B82929734000661EE2 /* RestMainInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestMainInfoViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 		A9EDBA232946B8E000589963 /* SeeMoreScreen */ = {
 			isa = PBXGroup;
 			children = (
+				A9EDBA2A2948034D00589963 /* SeeMoreCollectionCell */,
 				A9EDBA272946B97F00589963 /* SeeMoreView */,
 				A9EDBA262946B96500589963 /* SeeMoreVC */,
 			);
@@ -178,6 +181,14 @@
 				A9EDBA282946B99500589963 /* SeeMoreView.swift */,
 			);
 			name = SeeMoreView;
+			sourceTree = "<group>";
+		};
+		A9EDBA2A2948034D00589963 /* SeeMoreCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				A9EDBA2B294803AD00589963 /* SeeMoreCollectionViewCell.swift */,
+			);
+			path = SeeMoreCollectionCell;
 			sourceTree = "<group>";
 		};
 		A9F7F7AA2924769400661EE2 /* DefaultFiles */ = {
@@ -443,6 +454,7 @@
 				A91FDBCC290C7211007F9872 /* MainUserRestViewController.swift in Sources */,
 				A9F7F7C22929765800661EE2 /* RestMainInfoView.swift in Sources */,
 				A91FDBC8290C7211007F9872 /* AppDelegate.swift in Sources */,
+				A9EDBA2C294803AD00589963 /* SeeMoreCollectionViewCell.swift in Sources */,
 				A9F7F7B92929734000661EE2 /* RestMainInfoViewController.swift in Sources */,
 				A9EDBA252946B95A00589963 /* SeeMoreViewController.swift in Sources */,
 				A91FDBCA290C7211007F9872 /* SceneDelegate.swift in Sources */,
