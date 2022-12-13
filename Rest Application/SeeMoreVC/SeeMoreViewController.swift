@@ -29,7 +29,6 @@ class SeeMoreViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let seeMorecell = seeMoreView.seeMoreCollectionView.dequeueReusableCell(withReuseIdentifier: "seeMoreCellIdentifier", for: indexPath as IndexPath)
-        seeMorecell.backgroundColor = UIColor.green
         
         return seeMorecell
     }

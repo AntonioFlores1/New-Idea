@@ -11,6 +11,9 @@ class MainUserCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
            super.init(frame: frame)
+        self.layer.cornerRadius = 15.0
+        self.layer.borderWidth = 1.0
+        self.layer.borderColor = UIColor.lightGray.cgColor
        }
        
        required init?(coder: NSCoder) {
@@ -19,6 +22,8 @@ class MainUserCollectionViewCell: UICollectionViewCell {
        
        func setupCell(colour: UIColor) {
            self.backgroundColor = colour
+           self.layer.borderWidth = 1.0
+           self.layer.borderColor = UIColor.lightGray.cgColor
        }
     
 }

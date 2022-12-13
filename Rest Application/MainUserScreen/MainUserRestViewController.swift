@@ -13,12 +13,9 @@ class MainUserRestViewController: UIViewController, UICollectionViewDelegate, UI
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
 
         self.navigationItem.setTitle("Hello Antonio Good morning", subtitle: "Find Your Place")
 //        navigationItem.title = "Hello Antonio Good morning, Find Your Place to eat"
-        navigationItem.titleView?.backgroundColor = .cyan
-        navigationController?.navigationBar.backgroundColor = .orange
 //        self.navigationItem.largeTitleDisplayMode = .never
 //        self.navigationItem.largeTitleDisplayMode = .always
 //           self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -31,7 +28,8 @@ class MainUserRestViewController: UIViewController, UICollectionViewDelegate, UI
         mainUserView.nearYouCollectionView.dataSource = self
         
         mainUserView.eatoftheWeekCollectionView.register(MainUserCollectionViewCell.self, forCellWithReuseIdentifier: "mainUserCollectionCellIdentifier")
-        mainUserView.nearYouCollectionView.register(MainUserCollectionViewCell.self, forCellWithReuseIdentifier: "nearUserCollectionCellIdentifier")
+        
+        mainUserView.nearYouCollectionView.register(MainUserCollectionViewCell.self, forCellWithReuseIdentifier: "nearYouCollectionCellIdentifier")
         
         
         mainUserView.nearYouCollectionView.alwaysBounceHorizontal = true
@@ -84,12 +82,18 @@ class MainUserRestViewController: UIViewController, UICollectionViewDelegate, UI
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == mainUserView.eatoftheWeekCollectionView {
             let mainUsercell = mainUserView.eatoftheWeekCollectionView.dequeueReusableCell(withReuseIdentifier: "mainUserCollectionCellIdentifier", for: indexPath as IndexPath)
-            mainUsercell.backgroundColor = UIColor.green
+            
+//            mainUsercell.layer.cornerRadius = 15.0
+//            mainUsercell.layer.borderWidth = 0.0
+//            mainUsercell.layer.shadowColor = UIColor.black.cgColor
+//            mainUsercell.layer.shadowOffset = CGSize(width: 0, height: 0)
+//            mainUsercell.layer.shadowRadius = 5.0
+//            mainUsercell.layer.shadowOpacity = 1
+//            mainUsercell.layer.masksToBounds = false
 
             return mainUsercell
         } else {
-            let nearUsercell = mainUserView.nearYouCollectionView.dequeueReusableCell(withReuseIdentifier: "nearUserCollectionCellIdentifier", for: indexPath as IndexPath)
-            nearUsercell.backgroundColor = UIColor.green
+            let nearUsercell = mainUserView.nearYouCollectionView.dequeueReusableCell(withReuseIdentifier: "nearYouCollectionCellIdentifier", for: indexPath as IndexPath)
 
             return nearUsercell
         }
@@ -117,7 +121,6 @@ extension UINavigationItem {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.alignment = .leading
-        stackView.backgroundColor = .green
         stackView.axis = .vertical
         self.titleView = stackView
         
