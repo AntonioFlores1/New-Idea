@@ -47,6 +47,7 @@ class MainUserView: UIView {
     private lazy var eatofWeekLabel: UILabel = {
         let eatofWeekLabel = UILabel()
         eatofWeekLabel.text = "Eat of the Week"
+        eatofWeekLabel.font = UIFont.systemFont(ofSize: 16)
         return eatofWeekLabel
     }()
     
@@ -54,7 +55,7 @@ class MainUserView: UIView {
         let eatoftheweekSeeMoreButton = UIButton()
         eatoftheweekSeeMoreButton.setTitle("See More", for: .normal)
         eatoftheweekSeeMoreButton.setTitleColor(UIColor.black, for: .normal)
-        eatoftheweekSeeMoreButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        eatoftheweekSeeMoreButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         return eatoftheweekSeeMoreButton
     }()
     
@@ -62,7 +63,7 @@ class MainUserView: UIView {
      lazy var eatoftheWeekCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let eatoftheWeekCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width/2 - 10, height: 190)
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width/2 - 10, height: 200)
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         layout.minimumInteritemSpacing = 0.0
         layout.scrollDirection = .horizontal
@@ -73,14 +74,14 @@ class MainUserView: UIView {
     private lazy var nearYouLabel: UILabel = {
         let nearYouLabel = UILabel()
         nearYouLabel.text = "Near You"
+        nearYouLabel.font = UIFont.systemFont(ofSize: 16)
         return nearYouLabel
     }()
     
      lazy var nearYouSeeMoreButton: UIButton = {
         let nearYouSeeMoreButton = UIButton()
          nearYouSeeMoreButton.setTitle("See More", for: .normal)
-         nearYouSeeMoreButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-
+         nearYouSeeMoreButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         nearYouSeeMoreButton.setTitleColor(UIColor.black, for: .normal)
         return nearYouSeeMoreButton
     }()
@@ -89,11 +90,10 @@ class MainUserView: UIView {
     lazy var nearYouCollectionView: UICollectionView = {
        let layout = UICollectionViewFlowLayout()
        let nearYouCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-       layout.itemSize = CGSize(width: UIScreen.main.bounds.width/2 - 10, height: 190)
+       layout.itemSize = CGSize(width: UIScreen.main.bounds.width/2 - 10, height: 200)
        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
        layout.minimumInteritemSpacing = 0.0
        layout.scrollDirection = .horizontal
-      
        return nearYouCollectionView
    }()
     
@@ -145,7 +145,7 @@ class MainUserView: UIView {
     
     private func filterRestButtonConstraints(){
         filterRestButton.translatesAutoresizingMaskIntoConstraints = false
-        filterRestButton.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20).isActive = true
+        filterRestButton.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 15).isActive = true
         filterRestButton.leadingAnchor.constraint(equalTo: mainUserSearchBar.trailingAnchor, constant: 10).isActive = true
         filterRestButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
         filterRestButton.bottomAnchor.constraint(equalTo: mainUserSearchBar.bottomAnchor, constant: 0).isActive = true
@@ -153,20 +153,20 @@ class MainUserView: UIView {
     
     private func eatofWeekLabelConstraints(){
         eatofWeekLabel.translatesAutoresizingMaskIntoConstraints = false
-        eatofWeekLabel.topAnchor.constraint(equalTo: mainUserSearchBar.bottomAnchor, constant: 24).isActive = true
+        eatofWeekLabel.topAnchor.constraint(equalTo: mainUserSearchBar.bottomAnchor, constant: 15).isActive = true
         eatofWeekLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
         }
     
     private func eatoftheweekSeeMoreButtonConstraints(){
         eatoftheweekSeeMoreButton.translatesAutoresizingMaskIntoConstraints = false
-        eatoftheweekSeeMoreButton.topAnchor.constraint(equalTo: filterRestButton.bottomAnchor, constant: 24).isActive = true
+        eatoftheweekSeeMoreButton.topAnchor.constraint(equalTo: filterRestButton.bottomAnchor, constant: 15).isActive = true
         eatoftheweekSeeMoreButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
         eatoftheweekSeeMoreButton.bottomAnchor.constraint(equalTo: eatofWeekLabel.bottomAnchor, constant: 0).isActive = true
     }
     
     private func eatoftheWeekCollectionViewConstraints(){
         eatoftheWeekCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        eatoftheWeekCollectionView.topAnchor.constraint(equalTo: eatofWeekLabel.bottomAnchor, constant: 10).isActive = true
+        eatoftheWeekCollectionView.topAnchor.constraint(equalTo: eatofWeekLabel.bottomAnchor, constant: 0).isActive = true
         eatoftheWeekCollectionView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
         eatoftheWeekCollectionView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
         eatoftheWeekCollectionView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.3).isActive = true
@@ -175,14 +175,13 @@ class MainUserView: UIView {
     
     private func nearYouLabelConstraints(){
         nearYouLabel.translatesAutoresizingMaskIntoConstraints = false
-        nearYouLabel.topAnchor.constraint(equalTo: eatoftheWeekCollectionView.bottomAnchor, constant: 24).isActive = true
+        nearYouLabel.topAnchor.constraint(equalTo: eatoftheWeekCollectionView.bottomAnchor, constant: 5).isActive = true
         nearYouLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
-
         }
     
     private func nearYouSeeMoreButtonConstraints(){
         nearYouSeeMoreButton.translatesAutoresizingMaskIntoConstraints = false
-        nearYouSeeMoreButton.topAnchor.constraint(equalTo: eatoftheWeekCollectionView.bottomAnchor, constant: 24).isActive = true
+        nearYouSeeMoreButton.topAnchor.constraint(equalTo: eatoftheWeekCollectionView.bottomAnchor, constant: 5).isActive = true
         nearYouSeeMoreButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
         nearYouSeeMoreButton.bottomAnchor.constraint(equalTo: nearYouLabel.bottomAnchor, constant: 0).isActive = true
 
@@ -190,7 +189,7 @@ class MainUserView: UIView {
 
     private func nearYouCollectionViewConstraints(){
         nearYouCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        nearYouCollectionView.topAnchor.constraint(equalTo: nearYouLabel.bottomAnchor, constant: 15).isActive = true
+        nearYouCollectionView.topAnchor.constraint(equalTo: nearYouLabel.bottomAnchor, constant: 0).isActive = true
         nearYouCollectionView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
         nearYouCollectionView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
         nearYouCollectionView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.3).isActive = true
