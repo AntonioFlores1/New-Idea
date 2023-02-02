@@ -8,8 +8,46 @@
 import UIKit
 
 class MainUserView: UIView {
-   
     
+    override init(frame: CGRect) {
+            super.init(frame: UIScreen.main.bounds)
+            commonInit()
+        }
+        
+        required init?(coder aDecoder: NSCoder) {
+            super.init(coder: aDecoder)
+            commonInit()
+        }
+    
+    private func commonInit(){
+        mainUserScreenUIConstraints()
+        }
+    
+    private func mainUserScreenUIConstraints(){
+        addingSubViews()
+        mainUserSearchBarConstraints()
+        filterRestButtonConstraints()
+        eatofWeekLabelConstraints()
+        eatoftheweekSeeMoreButtonConstraints()
+        eatoftheWeekCollectionViewConstraints()
+        nearYouLabelConstraints()
+        nearYouSeeMoreButtonConstraints()
+        nearYouCollectionViewConstraints()
+       }
+    
+    private func addingSubViews(){
+        scrollView.addSubview(containerView)
+        containerView.addSubview(mainUserSearchBar)
+        containerView.addSubview(filterRestButton)
+        containerView.addSubview(eatofWeekLabel)
+        containerView.addSubview(eatoftheweekSeeMoreButton)
+        containerView.addSubview(eatoftheWeekCollectionView)
+        containerView.addSubview(nearYouLabel)
+        containerView.addSubview(nearYouSeeMoreButton)
+        containerView.addSubview(nearYouCollectionView)
+    }
+    
+       
     lazy var contentViewSize = CGSize(width: self.frame.width, height: self.frame.height - 70)
     
     lazy var scrollView: UIScrollView = {
@@ -98,44 +136,7 @@ class MainUserView: UIView {
    }()
     
         
-    override init(frame: CGRect) {
-            super.init(frame: UIScreen.main.bounds)
-            commonInit()
-        }
-        
-        required init?(coder aDecoder: NSCoder) {
-            super.init(coder: aDecoder)
-            commonInit()
-        }
-    
-    private func commonInit(){
-        mainUserScreenUIConstraints()
-        }
-    
-    private func mainUserScreenUIConstraints(){
-        addingSubViews()
-        mainUserSearchBarConstraints()
-        filterRestButtonConstraints()
-        eatofWeekLabelConstraints()
-        eatoftheweekSeeMoreButtonConstraints()
-        eatoftheWeekCollectionViewConstraints()
-        nearYouLabelConstraints()
-        nearYouSeeMoreButtonConstraints()
-        nearYouCollectionViewConstraints()
-       }
-    
-    private func addingSubViews(){
-        scrollView.addSubview(containerView)
-        containerView.addSubview(mainUserSearchBar)
-        containerView.addSubview(filterRestButton)
-        containerView.addSubview(eatofWeekLabel)
-        containerView.addSubview(eatoftheweekSeeMoreButton)
-        containerView.addSubview(eatoftheWeekCollectionView)
-        containerView.addSubview(nearYouLabel)
-        containerView.addSubview(nearYouSeeMoreButton)
-        containerView.addSubview(nearYouCollectionView)
-    }
-    
+   
     private func mainUserSearchBarConstraints(){
         mainUserSearchBar.translatesAutoresizingMaskIntoConstraints = false
         mainUserSearchBar.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10).isActive = true
