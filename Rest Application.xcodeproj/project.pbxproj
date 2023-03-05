@@ -122,9 +122,9 @@
 			isa = PBXGroup;
 			children = (
 				A9F7F7AA2924769400661EE2 /* DefaultFiles */,
-				A9EDBA232946B8E000589963 /* SeeMoreScreen */,
-				A9F7F7B32929727A00661EE2 /* RestDetailedScreen */,
 				A9F7F7AB292479BC00661EE2 /* MainUserScreen */,
+				A9F7F7B32929727A00661EE2 /* RestDetailedScreen */,
+				A9EDBA232946B8E000589963 /* SeeMoreScreen */,
 				A91FDBD0290C7214007F9872 /* Assets.xcassets */,
 				A91FDBCD290C7211007F9872 /* Main.storyboard */,
 				A91FDBD5290C7214007F9872 /* Info.plist */,
